@@ -55,7 +55,10 @@ android_library {
     srcs: [
         "src/**/*.java",
         "src/**/*.kt",
+        "VieSuite/src/**/*.java",
+        "VieSuite/src/**/*.kt",
     ],
+    aaptflags: ["--extra-packages com.vie.suite"],
     exclude_srcs: [
         "src/com/android/settings/biometrics/fingerprint2/lib/**/*.kt",
     ],
@@ -65,7 +68,9 @@ android_library {
         "res",
         "res-export", // for external usage
         "res-product",
+        "VieSuite/res",
     ],
+    asset_dirs: ["VieSuite/assets"],
     optional_uses_libs: ["com.android.extensions.appfunctions"],
     static_libs: [
         // External dependencies
@@ -113,6 +118,7 @@ android_library {
         "fuelgauge-protos-lite",
         "settings-logtags",
         "statslog-settings",
+        "VendorSupport-preference",
         "setupdesign-lottie-loading-layout",
         "device_policy_aconfig_flags_lib",
         "keyboard_flags_lib",
