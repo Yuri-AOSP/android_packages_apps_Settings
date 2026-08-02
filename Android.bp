@@ -135,6 +135,12 @@ android_library {
         // Lineage dependencies
         "org.lineageos.platform.internal",
         "LineagePreferenceLib",
+
+        // Vie Suite portrait segmenter
+        "tensorflowlite_java",
+        "tflite_support_java",
+        "tensorflow-lite-gpu",
+        "tensorflow-lite-gpu-api",
     ],
 
     plugins: [
@@ -192,6 +198,13 @@ android_app {
     uses_libs: ["org.apache.http.legacy"],
     use_resource_processor: true,
     resource_dirs: [],
+    jni_libs: [
+        "libtensorflowlite_jni",
+        "libtensorflowlite_gpu_jni",
+    ],
+    aaptflags: [
+        "-0 .tflite",
+    ],
     optimize: {
         proguard_flags_files: ["proguard.flags"],
     },
